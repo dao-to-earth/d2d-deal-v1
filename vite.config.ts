@@ -5,8 +5,9 @@ import ViteComponents from 'unplugin-vue-components/vite'
 import visualizer from 'rollup-plugin-visualizer'
 import { quasar, transformAssetUrls } from '@quasar/vite-plugin'
 import rollupNodePolyFill from 'rollup-plugin-polyfill-node'
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
-import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
+import GlobalsPolyfills  from '@esbuild-plugins/node-globals-polyfill'
+// import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
+// import { NodeModulesPolyfillPlugin } from '@esbuild-plugins/node-modules-polyfill'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -85,11 +86,15 @@ export default defineConfig({
         global: 'globalThis'
       },
       plugins: [
-        NodeGlobalsPolyfillPlugin({
+        // NodeGlobalsPolyfillPlugin({
+        //   process: true,
+        //   buffer: true
+        // }),
+        GlobalsPolyfills({
           process: true,
           buffer: true
         }),
-        NodeModulesPolyfillPlugin()
+        // NodeModulesPolyfillPlugin()
       ]
     },
   }
