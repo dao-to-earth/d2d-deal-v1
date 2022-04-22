@@ -30,4 +30,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_D2D_DEAL_V1 }}'
           channelId: live
-          projectId: d2d-deal_v1
+          projectId: d2d-deal-v1
