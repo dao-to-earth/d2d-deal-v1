@@ -1,3 +1,6 @@
 {
-  "connectWallet": "Connect Wallet"
+  "connectWallet": "Connect Wallet",
+  "account": "Account",
+  "startDeal": "Start Deal",
+  "propose": "Propose"
 }

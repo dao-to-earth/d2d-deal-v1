@@ -1,6 +1,5 @@
 {
-  "name": "d2d-deal-client",
-  "private": true,
+  "name": "d2d-deal-v1",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -122,5 +121,5 @@
     "vue-tsc": "^0.34.6"
   },
   "license": "MIT",
-  "repository": "dao-to-earth/d2d-deal-client"
+  "repository": "dao-to-earth/d2d-deal-v1"
 }
