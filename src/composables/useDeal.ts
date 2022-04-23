@@ -1,9 +1,9 @@
 import { computed, reactive } from 'vue'
 import { ethers } from 'ethers'
-import { hhEthers } from '@/helpers/hardhatEthers'
+// import { hhEthers } from '@/helpers/hardhatEthers'
+import { getAbi } from '@/helpers/getAbi'
 import { getContract } from '@/helpers/contract'
-import SwapperABI from '@/../abi/'
-import GovernorABI from '@/../abi/'
+import SwapperABI from '@/../abi'
 import { getInstance } from '@dao-to-earth/lock/plugins/vue3'
 
 const auth = getInstance();
@@ -53,7 +53,9 @@ export function useDeal() {
       approverAmount,
       vestingPeriod
     ])
-    const creatorGovContract = await hhEthers.getContractAt(
+    const GovernorABI = await getAbi()
+    
+    const creatorGovContract = await ethers.getContractAt(
       creatorGovAddr,
       // @ts-ignore
       GovernorABI,

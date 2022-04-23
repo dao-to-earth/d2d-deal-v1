@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDeal } from '@/composables/useDeal'
-
 const form = ref(null)
 const dense = ref(false)
 const creatorGovAddr = ref('')
@@ -16,7 +15,6 @@ const vestingPeriod = ref(0)
 
 const router = useRouter();
 const { propose } = useDeal();
-
 async function validate() {
   (form.value as any).validate().then(success => {
     if (success) {
@@ -26,7 +24,6 @@ async function validate() {
     }
   })
 }
-
 async function callPropose() {
   const res = await propose(
     title.value,
@@ -44,7 +41,6 @@ async function callPropose() {
     router.push({ name: 'home' })
   }
 }
-
 function reset() {
   (form.value as any).resetValidation()
 }
