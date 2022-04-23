@@ -47,9 +47,9 @@ contract Swapper is ISwapper {
             token2: token2,
             amount1: amount1,
             amount2: amount2,
+            startDate: block.number,
             vesting: vesting,
             deadline: deadline,
-            startDate: block.number,
             status: Status.Pending
         });
         _dealId.increment();
@@ -75,8 +75,6 @@ contract Swapper is ISwapper {
 
     function claim(uint256 id) external override returns (bool) {
         Deal storage deal = _deals[id];
-        
-        require((deal.account1 == msg.sender) || (deal.account2 == msg.sender), "Swapper: caller is not stakeholder");
         
         require(deal.startDate + deal.vesting <= block.number, "Swapper: vesting period is not over");
 
