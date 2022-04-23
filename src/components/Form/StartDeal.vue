@@ -30,7 +30,7 @@ async function validate() {
 async function callPropose() {
   const res = await propose(
     title.value,
-    creatorGovAddr.vlaue,
+    creatorGovAddr.value,
     creatorTokenAddr.value,
     creatorAmount.value,
     approverAddr.value,

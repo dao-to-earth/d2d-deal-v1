@@ -1,8 +1,9 @@
 import { computed, reactive } from 'vue'
 import { ethers } from 'ethers'
+import { hhEthers } from '@/helpers/hardhatEthers'
 import { getContract } from '@/helpers/contract'
-import SwapperABI from '@/abi/SwapperABI'
-import GovernorABI from '@/abi/GOvernorABI'
+import SwapperABI from '@/../abi/'
+import GovernorABI from '@/../abi/'
 import { getInstance } from '@dao-to-earth/lock/plugins/vue3'
 
 const auth = getInstance();
@@ -25,18 +26,18 @@ const state = reactive<{
 
 export function useDeal() {
   async function propose(
-    title: String,
-    creatorGovAddr: String,
-    creatorTokenAddr: String,
-    creatorAmount: Number,
-    approverAddr: String,
-    approverTokenAddr: String,
-    approverAmount: Number,
-    vestingPeriod: Number
+    title: string,
+    creatorGovAddr: string,
+    creatorTokenAddr: string,
+    creatorAmount: number,
+    approverAddr: string,
+    approverTokenAddr: string,
+    approverAmount: number,
+    vestingPeriod: number
   ) {
     console.log('provided values: ', creatorTokenAddr, creatorAmount, approverAddr, approverTokenAddr, approverAmount, vestingPeriod)
     // title should be stored in ipfs
-    const creatorToken = await ethers.getContractAt('ERC20', creatorTokenAddr)
+    const creatorToken = await hhEthers.getContractAt('ERC20', creatorTokenAddr)
     const approveCallData = creatorToken.interface.encodeFunctionData('approve', [creatorAmount])
     console.log(auth.provider)
     const SwapperContract = getContract(
@@ -52,8 +53,9 @@ export function useDeal() {
       approverAmount,
       vestingPeriod
     ])
-    const creatorGovContract = await ethers.getContractAt(
+    const creatorGovContract = await hhEthers.getContractAt(
       creatorGovAddr,
+      // @ts-ignore
       GovernorABI,
       auth.provider
     )
