@@ -2,7 +2,7 @@
   "short_name": "Tandem",
   "name": "Tandem",
   "description": "D2D Deal Protocol",
-  "iconPath": "tandem-logo.jpeg",
+  "iconPath": "tandem-logo.svg",
   "icons": [
     {
       "src": "favicon.ico",
