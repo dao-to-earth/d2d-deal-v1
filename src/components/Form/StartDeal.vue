@@ -39,6 +39,7 @@ async function callPropose() {
   );
   if (res) {
     // show toast
+    console.log('Proposal has been submited 🚀')
     // do something with res
     router.push({ name: 'home' })
   }
