@@ -12,6 +12,7 @@ const approverAddr = ref('')
 const approverTokenAddr = ref('')
 const approverAmount = ref(0)
 const vestingPeriod = ref(0)
+const deadline = ref(1)
 
 const router = useRouter();
 const { propose } = useDeal();
@@ -33,7 +34,8 @@ async function callPropose() {
     approverAddr.value,
     approverTokenAddr.value,
     approverAmount.value,
-    vestingPeriod.value
+    vestingPeriod.value,
+    deadline.value
   );
   if (res) {
     // show toast
