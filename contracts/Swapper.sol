@@ -78,7 +78,7 @@ contract Swapper is ISwapper {
         
         require((deal.account1 == msg.sender) || (deal.account2 == msg.sender), "Swapper: caller is not stakeholder");
         
-        require(deal.startDate + deal.vesting >= block.number, "Swapper: vesting period is not over");
+        require(deal.startDate + deal.vesting <= block.number, "Swapper: vesting period is not over");
 
         IERC20(deal.token1).transfer(deal.account2, deal.amount1);
         IERC20(deal.token2).transfer(deal.account1, deal.amount2);
