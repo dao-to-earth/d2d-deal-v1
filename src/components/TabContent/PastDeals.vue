@@ -2,9 +2,11 @@
 import { onMounted, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDeal } from '@/composables/useDeal'
+import { useWeb3 } from '@/composables/useWeb3'
 
 const router = useRouter();
 const { getDeals } = useDeal();
+const { web3Account } = useWeb3();
 
 const state = reactive<{
   pastDeals: {
@@ -22,9 +24,8 @@ const state = reactive<{
 
 onMounted(async (): Promise<void> => {
   const deals = await getDeals();
-  // @ts-ignore
   deals.forEach(el => {
-    if (el.status === 'outdated') state.pastDeals.push(el)
+    if (web3Account === el.creatorProposerAddr || web3Account === el.creatorAddr) state.pastDeals.push(el)
   })
 })
 

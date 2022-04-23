@@ -37,7 +37,6 @@ async function callPropose() {
   );
   if (res) {
     // show toast
-    // do something with res
     router.push({ name: 'home' })
   }
 }

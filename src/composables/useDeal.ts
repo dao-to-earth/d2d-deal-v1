@@ -4,20 +4,24 @@ import { getContract } from '@/helpers/contract'
 import SwapperABI from '@/../abi'
 import { getInstance } from '@dao-to-earth/lock/plugins/vue3'
 
-const auth = getInstance();
-
 const state = reactive<{
   deals: {
-    dealID: string;
-    title: string;
-    creatorTokenAddr: string;
+    dealID?: string;
+    title?: string;
+    creatorProposerAddr: string;
     creatorAddr: string;
+    creatorTokenAddr: string;
     creatorAmount: number;
+    approverProposerAddr: string;
     approverAddr: string;
+    approverTokenAddr: string;
     approverAmount: number;
-    status: string;
+    startDate: any;
     vestingPeriod: number;
-  }[] | null;
+    vesting: any;
+    deadline: any;
+    status: string;
+  }[];
 }>({
   deals: []
 })
@@ -35,8 +39,10 @@ export function useDeal() {
   ) {
     console.log('provided values: ', creatorTokenAddr, creatorAmount, approverAddr, approverTokenAddr, approverAmount, vestingPeriod)
     // title should be stored in ipfs
-    console.log(auth.provider)
-    const signer = await auth.provider.getSigner()
+    const auth = getInstance();
+    console.log(auth)
+    console.log(auth.web3)
+    const signer = await auth.web3.getSigner()
     const creatorTokenABI = await getAbi(creatorTokenAddr)
     const creatorToken = await getContract(
       creatorTokenAddr,
@@ -72,9 +78,47 @@ export function useDeal() {
     return res
   }
 
-  function getDeals(params?: any) {
+  async function getDeals(params?: any): Promise<{}[]> {
     // retrieve deals related to the DAO as arrays
-    // deal title should be retrieved in ipfs
+    const auth = getInstance();
+    const signer = await auth.web3.getSigner()
+    const SwapperContract = getContract(
+      process.env.SwapperContractAddress,
+      SwapperABI,
+      signer
+    )
+    const eventFilter = SwapperContract.filters.DealCreated()
+    const events = await SwapperContract.queryFilter(eventFilter)
+
+    console.log(events)
+    events.forEach(el => {
+      let event
+      console.log(el)
+      // @ts-ignore
+      event.creatorProposerAddr = el.proposer1
+      // @ts-ignore
+      event.creatorAddr = el.account1
+      // @ts-ignore
+      event.creatorTokenAddr = el.token1
+      // @ts-ignore
+      event.creatorTokenAmount = el.amount1
+      // @ts-ignore
+      event.approverProposerAddr = el.porposer2
+      // @ts-ignore
+      event.approverAddr = el.account2
+      // @ts-ignore
+      event.approverTokenAddr = el.token2
+      // @ts-ignore
+      event.approverTokenAmount = el.amount2
+      // @ts-ignore
+      event.startDate = el.startDate
+      // @ts-ignore
+      event.vesting = el.vesting
+      // @ts-ignore
+      event.deadline = el.deadline
+      state.deals.push(event)
+    })
+    return state.deals
   }
 
   function getDeal(dealID: string): any | null {
