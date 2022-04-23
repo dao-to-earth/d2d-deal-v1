@@ -2,17 +2,18 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDeal } from '@/composables/useDeal'
-
 const form = ref(null)
 const dense = ref(false)
+const creatorGovAddr = ref('')
+const creatorTokenAddr = ref('')
 const title = ref('')
 const creatorAmount = ref(0)
 const approverAddr = ref('')
+const approverTokenAddr = ref('')
 const approverAmount = ref(0)
-
+const vestingPeriod = ref(0)
 const router = useRouter();
 const { propose } = useDeal();
-
 async function validate() {
   (form.value as any).validate().then(success => {
     if (success) {
@@ -22,20 +23,23 @@ async function validate() {
     }
   })
 }
-
 async function callPropose() {
-  const result = await propose(
+  const res = await propose(
     title.value,
+    creatorGovAddr.value,
+    creatorTokenAddr.value,
     creatorAmount.value,
     approverAddr.value,
+    approverTokenAddr.value,
     approverAmount.value,
+    vestingPeriod.value
   );
-  if (result) {
+  if (res) {
     // show toast
+    // do something with res
     router.push({ name: 'home' })
   }
 }
-
 function reset() {
   (form.value as any).resetValidation()
 }
@@ -50,6 +54,18 @@ function reset() {
     />
     <Spacer />
     <q-input
+      v-model="creatorGovAddr"
+      label="Address of your Governance Contract"
+      :dense="dense"
+    />
+    <Spacer />
+    <q-input
+      v-model="creatorTokenAddr"
+      label="Address of your Token"
+      :dense="dense"
+    />
+    <Spacer />
+    <q-input
       v-model="creatorAmount"
       label="Token amount you send"
       :dense="dense"
@@ -57,13 +73,25 @@ function reset() {
     <Spacer />
     <q-input
       v-model="approverAddr"
-      label="Opponent Address (should be on Ethereum Mainnet right now)"
+      label="Opponent Tresury Address"
+      :dense="dense"
+    />
+    <Spacer />
+    <q-input
+      v-model="approverTokenAddr"
+      label="Opponent Token Address"
       :dense="dense"
     />
     <Spacer />
     <q-input
       v-model="approverAmount"
       label="Token amount your opponent send"
+      :dense="dense"
+    />
+    <Spacer />
+    <q-input
+      v-model="vestingPeriod"
+      label="Vesting Period"
       :dense="dense"
     />
     <Spacer />
