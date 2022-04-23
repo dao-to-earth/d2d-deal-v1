@@ -10,12 +10,20 @@ const { web3Account } = useWeb3();
 
 const state = reactive<{
   pastDeals: {
-    dealID: string;
-    title: string;
+    dealID?: string;
+    title?: string;
+    creatorProposerAddr: string;
     creatorAddr: string;
+    creatorTokenAddr: string;
     creatorAmount: number;
+    approverProposerAddr: string;
     approverAddr: string;
+    approverTokenAddr: string;
     approverAmount: number;
+    startDate: any;
+    vestingPeriod: number;
+    vesting: any;
+    deadline: any;
     status: string;
   }[];
 }>({

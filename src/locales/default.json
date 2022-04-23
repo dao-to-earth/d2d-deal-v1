@@ -2,5 +2,6 @@
   "connectWallet": "Connect Wallet",
   "account": "Account",
   "startDeal": "Start Deal",
-  "propose": "Propose"
+  "propose": "Propose",
+  "approve": "Approve"
 }
