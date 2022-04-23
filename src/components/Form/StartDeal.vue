@@ -96,6 +96,12 @@ function reset() {
       :dense="dense"
     />
     <Spacer />
+    <q-input
+      v-model="deadline"
+      label="Deadline"
+      :dense="dense"
+    />
+    <Spacer />
     <div class="text-center mt-4">
       <Button
         @click="validate"

@@ -17,6 +17,7 @@ const state = reactive<{
     approverAmount: number;
     status: string;
     vestingPeriod: number;
+    deadline: number;
   }[] | null;
 }>({
   deals: []
@@ -31,7 +32,8 @@ export function useDeal() {
     approverAddr: string,
     approverTokenAddr: string,
     approverAmount: number,
-    vestingPeriod: number
+    vestingPeriod: number,
+    deadline: number
   ) {
     console.log('provided values: ', creatorTokenAddr, creatorAmount, approverAddr, approverTokenAddr, approverAmount, vestingPeriod)
     // title should be stored in ipfs
@@ -55,7 +57,8 @@ export function useDeal() {
       approverAddr,
       approverTokenAddr,
       approverAmount,
-      vestingPeriod
+      vestingPeriod,
+      deadline
     ])
     const creatorGovABI = await getAbi(creatorGovAddr)
     const creatorGovContract = await getContract(
