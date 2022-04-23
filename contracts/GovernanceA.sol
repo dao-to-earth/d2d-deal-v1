@@ -2,6 +2,7 @@
 pragma solidity ^0.8.6;
 
 import "@openzeppelin/contracts/governance/Governor.sol";
+//import "./Governor.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol";
 import "@openzeppelin/contracts/governance/extensions/GovernorVotes.sol";
 
@@ -13,15 +14,15 @@ contract GovernanceA is Governor, GovernorCountingSimple, GovernorVotes {
     }
 
     function votingPeriod() public pure override returns (uint256) {
-        return 3; // 1 week
+        return 4; // 1 week
     }
 
     function quorum(uint256 blockNumber) public pure override returns (uint256) {
-        return 1e18;
+        return 1;
     }
 
     function proposalThreshold() public pure override returns (uint256) {
-        return 1e18;
+        return 1;
     }
 
     // The following functions are overrides required by Solidity.
