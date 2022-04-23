@@ -1,6 +1,4 @@
 import { computed, reactive } from 'vue'
-import { ethers } from 'ethers'
-// import { hhEthers } from '@/helpers/hardhatEthers'
 import { getAbi } from '@/helpers/getAbi'
 import { getContract } from '@/helpers/contract'
 import SwapperABI from '@/../abi'
@@ -37,13 +35,19 @@ export function useDeal() {
   ) {
     console.log('provided values: ', creatorTokenAddr, creatorAmount, approverAddr, approverTokenAddr, approverAmount, vestingPeriod)
     // title should be stored in ipfs
-    const creatorToken = await hhEthers.getContractAt('ERC20', creatorTokenAddr)
-    const approveCallData = creatorToken.interface.encodeFunctionData('approve', [creatorAmount])
     console.log(auth.provider)
+    const signer = await auth.provider.getSigner()
+    const creatorTokenABI = await getAbi(creatorTokenAddr)
+    const creatorToken = await getContract(
+      creatorTokenAddr,
+      creatorTokenABI,
+      signer
+    )
+    const approveCallData = creatorToken.interface.encodeFunctionData('approve', [creatorAmount])
     const SwapperContract = getContract(
       process.env.SwapperContractAddress,
       SwapperABI,
-      auth.provider
+      signer
     )
     const proposeCallData = SwapperContract.interface.encodeFunctionData('propose', [
       creatorTokenAddr,
@@ -53,13 +57,11 @@ export function useDeal() {
       approverAmount,
       vestingPeriod
     ])
-    const GovernorABI = await getAbi()
-    
-    const creatorGovContract = await ethers.getContractAt(
+    const creatorGovABI = await getAbi(creatorGovAddr)
+    const creatorGovContract = await getContract(
       creatorGovAddr,
-      // @ts-ignore
-      GovernorABI,
-      auth.provider
+      creatorGovABI,
+      signer
     )
     const res = await creatorGovContract.propose(
       [creatorTokenAddr],
