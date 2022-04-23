@@ -54,7 +54,7 @@ contract Swapper is ISwapper {
         });
         _dealId.increment();
 
-        emit DealCreated(msg.sender, token1, amount1, receiver, token2, amount2, vesting);
+        emit DealCreated(msg.sender, token1, amount1, receiver, token2, amount2, vesting, deadline);
 
         return (true, id);
     }

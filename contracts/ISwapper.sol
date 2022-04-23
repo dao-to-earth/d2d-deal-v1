@@ -17,7 +17,8 @@ interface ISwapper {
         address receiver, 
         address token2, 
         uint256 amount2, 
-        uint256 vesting
+        uint256 vesting,
+        uint256 deadline
     );
 
     event DealApproved(uint256 dealId, address caller);
