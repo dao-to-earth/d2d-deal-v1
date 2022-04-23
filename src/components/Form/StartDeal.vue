@@ -12,6 +12,7 @@ const approverAddr = ref('')
 const approverTokenAddr = ref('')
 const approverAmount = ref(0)
 const vestingPeriod = ref(0)
+
 const router = useRouter();
 const { propose } = useDeal();
 async function validate() {

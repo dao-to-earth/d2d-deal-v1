@@ -53,7 +53,6 @@ export function useDeal() {
       approverAmount,
       vestingPeriod
     ])
-
     const GovernorABI = await getAbi()
     
     const creatorGovContract = await ethers.getContractAt(
