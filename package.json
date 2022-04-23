@@ -16,7 +16,9 @@
     "hardhat:watch:build": "npx hardhat watch compilation ",
     "hardhat:watch:test": "npx hardhat watch test --network hardhat ",
     "hardhat:test": "npx hardhat test --network hardhat ",
-    "lint:sol": "solhint --config ./.solhint.json \"contracts/**/*.sol\""
+    "lint:sol": "solhint --config ./.solhint.json \"contracts/**/*.sol\"",
+    "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{js,json,md,sol,ts}\"",
+    "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,sol,ts}\""
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
