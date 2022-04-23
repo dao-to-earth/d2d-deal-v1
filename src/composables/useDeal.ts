@@ -7,8 +7,6 @@ import SwapperABI from '@/../abi'
 import { getInstance } from '@dao-to-earth/lock/plugins/vue3'
 
 const auth = getInstance();
-const GovernorABI = await getAbi()
-    console.log("GovernorABI :", GovernorABI.GovAbi);
 
 const state = reactive<{
   deals: {
@@ -56,10 +54,8 @@ export function useDeal() {
       vestingPeriod
     ])
 
-    // const GovernorABI = await getAbi()
-    // console.log("GovernorABI :", GovernorABI);
+    const GovernorABI = await getAbi()
     
-
     const creatorGovContract = await ethers.getContractAt(
       creatorGovAddr,
       // @ts-ignore
