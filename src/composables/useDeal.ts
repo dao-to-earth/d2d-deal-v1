@@ -46,12 +46,12 @@ export function useDeal() {
       signer
     )
     const approveCallData = creatorToken.interface.encodeFunctionData('approve', [creatorAmount])
-    const SwapperContract = getContract(
+    const swapperContract = getContract(
       process.env.SwapperContractAddress,
       SwapperABI,
       signer
     )
-    const proposeCallData = SwapperContract.interface.encodeFunctionData('propose', [
+    const proposeCallData = swapperContract.interface.encodeFunctionData('propose', [
       creatorTokenAddr,
       creatorAmount,
       approverAddr,
@@ -66,9 +66,10 @@ export function useDeal() {
       creatorGovABI,
       signer
     )
+
     const res = await creatorGovContract.propose(
-      [creatorTokenAddr],
-      [0],
+      [creatorTokenAddr, swapperContract],
+      [0, 0],
       [approveCallData, proposeCallData],
       title
     )

@@ -26,6 +26,7 @@ async function validate() {
   })
 }
 async function callPropose() {
+
   const res = await propose(
     title.value,
     creatorGovAddr.value,
@@ -42,6 +43,8 @@ async function callPropose() {
     console.log('Proposal has been submited 🚀')
     // do something with res
     router.push({ name: 'home' })
+  } else {
+    console.log('Proposal has not been submited ☹️')
   }
 }
 function reset() {
