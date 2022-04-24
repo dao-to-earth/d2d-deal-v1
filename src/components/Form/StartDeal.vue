@@ -6,7 +6,6 @@ const form = ref(null)
 const dense = ref(false)
 const creatorGovAddr = ref('')
 const creatorTokenAddr = ref('')
-const title = ref('')
 const creatorAmount = ref(0)
 const approverAddr = ref('')
 const approverTokenAddr = ref('')
@@ -28,10 +27,11 @@ async function validate() {
 async function callPropose() {
 
   const res = await propose(
-    title.value,
+    '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
     creatorGovAddr.value,
     creatorTokenAddr.value,
     creatorAmount.value,
+    '0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc',
     approverAddr.value,
     approverTokenAddr.value,
     approverAmount.value,
@@ -54,12 +54,6 @@ function reset() {
 
 <template>
   <q-form ref="form">
-    <q-input
-      v-model="title"
-      label="Deal Proposal Title"
-      :dense="dense"
-    />
-    <Spacer />
     <q-input
       v-model="creatorGovAddr"
       label="Address of your Governance Contract"

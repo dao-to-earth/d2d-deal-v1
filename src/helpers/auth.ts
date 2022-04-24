@@ -13,7 +13,7 @@ const lockConnectors = {
   torus,
   walletlink,
   portis,
-  gnosis
+  gnosis,
 };
 
 Object.entries(connectors).forEach((connector: any) => {
