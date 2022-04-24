@@ -31,9 +31,9 @@ const state = reactive<{
 })
 
 onMounted(async (): Promise<void> => {
-  const deals = await getDeals();
+  const deals = await getDeals('claimed');
   deals.forEach(el => {
-    if (web3Account === el.creatorProposerAddr || web3Account === el.creatorAddr) state.pastDeals.push(el)
+    if (web3Account === el.creatorProposerAddr || web3Account === el.creatorAddr || web3Account === el.receiverProposerAddr || web3Account === el.receiverAddr) state.pastDeals.push(el)
   })
 })
 
@@ -47,10 +47,23 @@ function goToDetail(dealID: string): void {
     <Card
       v-for="pastDeal in state.pastDeals"
       :key="pastDeal.dealID"
-      @click="goToDetail(pastDeal.dealID)"
     >
       <template #card-section>
-        <h3>{{ pastDeal.title }}</h3>
+        <p>{{ `dealID: ${pastDeal.dealID}` }}</p>
+        <h3>{{ `title: ${pastDeal.title}` }}</h3>
+        <p>{{ `creatorProposerAddr: ${pastDeal.creatorProposerAddr}` }}</p>
+        <p>{{ `creatorAddr: ${pastDeal.creatorAddr}` }}</p>
+        <p>{{ `creatorTokenAddr: ${pastDeal.creatorTokenAddr}` }}</p>
+        <p>{{ `creatorAmount: ${pastDeal.creatorAmount}` }}</p>
+        <p>{{ `approverProposerAddr: ${pastDeal.approverProposerAddr}` }}</p>
+        <p>{{ `approverAddr: ${pastDeal.approverAddr}` }}</p>
+        <p>{{ `approverTokenAddr: ${pastDeal.approverTokenAddr}` }}</p>
+        <p>{{ `approverAmount: ${pastDeal.approverAmount}` }}</p>
+        <p>{{ `startDate: ${pastDeal.startDate}` }}</p>
+        <p>{{ `vesting: ${pastDeal.vesting}` }}</p>
+        <p>{{ `vestingPeriod: ${pastDeal.vestingPeriod}` }}</p>
+        <p>{{ `deadline: ${pastDeal.deadline}` }}</p>
+        <p>{{ `status: ${pastDeal.status}` }}</p>
       </template>
     </Card>
   </div>

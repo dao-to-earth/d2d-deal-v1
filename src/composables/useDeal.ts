@@ -75,11 +75,12 @@ export function useDeal() {
       [approveCallData, proposeCallData],
       title
     )
-    return res
+    const { id } = res
+    
+    return id
   }
 
-  async function getDeals(params?: any): Promise<{}[]> {
-    // retrieve deals related to the DAO as arrays
+  async function approve(dealID: string): Promise<boolean> {
     const auth = getInstance();
     const signer = await auth.web3.getSigner()
     const SwapperContract = getContract(
@@ -87,13 +88,64 @@ export function useDeal() {
       SwapperABI,
       signer
     )
-    const eventFilter = SwapperContract.filters.DealCreated()
-    const events = await SwapperContract.queryFilter(eventFilter)
+
+    const res = await SwapperContract.approve(dealID)
+    return res
+  }
+
+  async function isClaimable(
+    startDate: string,
+    vesting: string,
+  ): Promise<boolean> {
+    const auth = getInstance();
+    const blockNumber = await auth.web3.getBlockNumber()
+    return startDate + vesting <= blockNumber
+  }
+
+  async function claim(dealID: string): Promise<boolean> {
+    const auth = getInstance();
+    const signer = await auth.web3.getSigner()
+    const SwapperContract = getContract(
+      process.env.SwapperContractAddress,
+      SwapperABI,
+      signer
+    )
+
+    const res = await SwapperContract.claim(dealID)
+    return res
+  }
+
+  async function getDeals(status: string): Promise<{}[]> {
+    const auth = getInstance();
+    const signer = await auth.web3.getSigner()
+    const SwapperContract = getContract(
+      process.env.SwapperContractAddress,
+      SwapperABI,
+      signer
+    )
+    let eventFilter
+    let events
+    switch(status) {
+      case 'pending':
+        eventFilter = SwapperContract.filters.DealCreated()
+        events = await SwapperContract.queryFilter(eventFilter)
+        break;
+      case 'approved':
+        eventFilter = SwapperContract.filters.DealApproved()
+        events = await SwapperContract.queryFilter(eventFilter)
+        break;
+      case 'claimed':
+        eventFilter = SwapperContract.filters.DealClaimed()
+        events = await SwapperContract.queryFilter(eventFilter)
+        break;
+    }
 
     console.log(events)
     events.forEach(el => {
       let event
       console.log(el)
+      // @ts-ignore
+      event.dealID = el.id
       // @ts-ignore
       event.creatorProposerAddr = el.proposer1
       // @ts-ignore
@@ -129,6 +181,9 @@ export function useDeal() {
 
   return {
     propose,
+    approve,
+    isClaimable,
+    claim,
     getDeals,
     getDeal,
     deals: computed(() => state.deals),

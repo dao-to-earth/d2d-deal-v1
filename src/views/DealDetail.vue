@@ -60,19 +60,27 @@ function approve() {
     <Card>
       <template #card-section>
         <p>{{ state.deal.dealID }}</p>
-        <h3>{{ state.deal.title }}</h3>
-        <p>{{ state.deal.creatorAddr }}</p>
-        <p>{{ state.deal.creatorAmount }}</p>
-        <p>{{ state.deal.approverAddr }}</p>
-        <p>{{ state.deal.approverAmount }}</p>
-        <p>{{ state.deal.status }}</p>
+        <h3>{{ `title: ${state.deal.title}` }}</h3>
+        <p>{{ `creatorProposerAddr: ${state.deal.creatorProposerAddr}` }}</p>
+        <p>{{ `creatorAddr: ${state.deal.creatorAddr}` }}</p>
+        <p>{{ `creatorTokenAddr: ${state.deal.creatorTokenAddr}` }}</p>
+        <p>{{ `creatorAmount: ${state.deal.creatorAmount}` }}</p>
+        <p>{{ `approverProposerAddr: ${state.deal.approverProposerAddr}` }}</p>
+        <p>{{ `approverAddr: ${state.deal.approverAddr}` }}</p>
+        <p>{{ `approverTokenAddr: ${state.deal.approverTokenAddr}` }}</p>
+        <p>{{ `approverAmount: ${state.deal.approverAmount}` }}</p>
+        <p>{{ `startDate: ${state.deal.startDate}` }}</p>
+        <p>{{ `vesting: ${state.deal.vesting}` }}</p>
+        <p>{{ `vestingPeriod: ${state.deal.vestingPeriod}` }}</p>
+        <p>{{ `deadline: ${state.deal.deadline}` }}</p>
+        <p>{{ `status: ${state.deal.status}` }}</p>
       </template>
       <template #card-action>
         <div
           class="text-center mt-4"
         >
           <Button
-            @click="validate"
+            @click="approve"
             class="button-outline w-40"
           >
             <span v-text="$t('approve')" />
