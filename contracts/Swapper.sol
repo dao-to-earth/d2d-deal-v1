@@ -25,8 +25,8 @@ contract Swapper is ISwapper {
         uint256 deadline;
         Status status;
     }
-    mapping(uint256 => Deal) public _deals;
-
+    mapping(uint256 => Deal) private _deals;
+    
     mapping(address => mapping(address => uint256)) private _balances;
 
     function propose(
