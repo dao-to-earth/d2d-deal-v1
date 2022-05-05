@@ -11,12 +11,10 @@ interface ISwapper {
     }
 
     event DealCreated(
-        address proposer1,
-        address executor1,
+        address account1,
         address token1, 
         uint256 amount1, 
-        address proposer2,
-        address executor2, 
+        address account2, 
         address token2, 
         uint256 amount2,
         uint256 startDate,
@@ -24,11 +22,11 @@ interface ISwapper {
         uint256 deadline
     );
 
-    event DealApproved(uint256 dealId, address executor, address proposer1, address proposer2);
+    event DealApproved(uint256 dealId, address caller);
 
-    event DealClaimed(uint256 dealId, address executor, address proposer1, address proposer2);
+    event DealClaimed(uint256 dealId, address caller);
 
-    event DealCanceled(uint256 dealId, address executor, address proposer1, address proposer2);
+    event DealCanceled(uint256 dealId, address caller);
 
     /**
     * @dev Creates a new Deal after Transfer at address `token1` 
@@ -43,10 +41,8 @@ interface ISwapper {
     * Emits a {DealCreated} event.
     */
     function propose(
-        address proposer1,
         address token1, 
-        uint256 amount1,
-        address proposer2, 
+        uint256 amount1, 
         address account2, 
         address token2, 
         uint256 amount2, 
