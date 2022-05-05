@@ -41,8 +41,8 @@ export function useDeal() {
     // title should be stored in ipfs
     const auth = getInstance();
     console.log(auth)
-    console.log(auth.web3)
-    const signer = await auth.web3.getSigner()
+    // console.log(auth.provider.value)
+    const signer = await auth.provider.value.getSigner()
     const creatorTokenABI = await getAbi(creatorTokenAddr)
     const creatorToken = await getContract(
       creatorTokenAddr,
@@ -82,7 +82,7 @@ export function useDeal() {
 
   async function approve(dealID: string): Promise<boolean> {
     const auth = getInstance();
-    const signer = await auth.web3.getSigner()
+    const signer = await auth.provider.value.getSigner()
     const SwapperContract = getContract(
       process.env.SwapperContractAddress,
       SwapperABI,
@@ -98,13 +98,13 @@ export function useDeal() {
     vesting: string,
   ): Promise<boolean> {
     const auth = getInstance();
-    const blockNumber = await auth.web3.getBlockNumber()
+    const blockNumber = await auth.provider.value.getBlockNumber()
     return startDate + vesting <= blockNumber
   }
 
   async function claim(dealID: string): Promise<boolean> {
     const auth = getInstance();
-    const signer = await auth.web3.getSigner()
+    const signer = await auth.provider.value.getSigner()
     const SwapperContract = getContract(
       process.env.SwapperContractAddress,
       SwapperABI,
@@ -117,7 +117,10 @@ export function useDeal() {
 
   async function getDeals(status: string): Promise<{}[]> {
     const auth = getInstance();
-    const signer = await auth.web3.getSigner()
+    setTimeout(() => {
+      console.log(auth.provider.value)
+    }, 5000)
+    const signer = await auth.provider.value.getSigner()
     const SwapperContract = getContract(
       process.env.SwapperContractAddress,
       SwapperABI,
