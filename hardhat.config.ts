@@ -55,11 +55,11 @@ export default {
     },
     rinkeby: {
       url: process.env.ALCHEMY_RINKEBY_KEY,
-      accounts: [process.env.PRIVATE_KEY],
+      accounts: privateKeys,
     },
     mumbai: {
       url: process.env.ALCHEMY_MUMBAI_KEY,
-      accounts: [process.env.PRIVATE_KEY],
+      accounts: privateKeys,
     },
     // fantom: {
     //   url: 'https://rpc.ftm.tools/',
@@ -79,16 +79,16 @@ export default {
     //   tags: ['staging'],
     //   gasMultiplier: 2,
     // },
-    // fuji: {
-    //   url: 'https://api.avax-test.network/ext/bc/C/rpc',
-    //   gasPrice: 225000000000,
-    //   gas: 4000000,
-    //   chainId: 43113,
-    //   accounts,
-    //   live: true,
-    //   saveDeployments: true,
-    //   gasMultiplier: 2,
-    // },
+    fuji: {
+      url: 'https://api.avax-test.network/ext/bc/C/rpc',
+      gasPrice: 225000000000,
+      gas: 4000000,
+      chainId: 43113,
+      accounts,
+      live: true,
+      saveDeployments: true,
+      gasMultiplier: 2,
+    },
     // avalanche: {
     //   url: 'https://api.avax.network/ext/bc/C/rpc',
     //   gasPrice: 225000000000,

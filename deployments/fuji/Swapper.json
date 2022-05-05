@@ -1,0 +1,595 @@
+{
+  "address": "0x2D596e821fE587CE3308848A05D6895bdC021fDb",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "dealId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "executor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer2",
+          "type": "address"
+        }
+      ],
+      "name": "DealApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "dealId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "executor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer2",
+          "type": "address"
+        }
+      ],
+      "name": "DealCanceled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "dealId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "executor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer2",
+          "type": "address"
+        }
+      ],
+      "name": "DealClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "executor1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token1",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount1",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "proposer2",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "executor2",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token2",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount2",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "startDate",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "vesting",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "DealCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "_deals",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "proposer1",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "proposer2",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "account1",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "account2",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "token1",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "token2",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startDate",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "vesting",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum ISwapper.Status",
+          "name": "status",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancel",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "id",
+          "type": "uint256"
+        }
+      ],
+      "name": "claim",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "proposer1",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "token1",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount1",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "proposer2",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "account2",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "token2",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount2",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "vesting",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "propose",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xe8deb7375e4d5f5b10fb6132d1172c22bc9d79fb76312053383a733487f4add0",
+  "receipt": {
+    "to": null,
+    "from": "0x7E0F360fD696f3aAc8DBDbb4EbF23D3718aeF4ca",
+    "contractAddress": "0x2D596e821fE587CE3308848A05D6895bdC021fDb",
+    "transactionIndex": 0,
+    "gasUsed": "757119",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x4185059296351f065b01d2e34fa5441afb4808fde5a6387adf9315c0cde402cb",
+    "transactionHash": "0xe8deb7375e4d5f5b10fb6132d1172c22bc9d79fb76312053383a733487f4add0",
+    "logs": [],
+    "blockNumber": 9317493,
+    "cumulativeGasUsed": "757119",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "75b985615b6ec40b007202ecec21349d",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.10+commit.fc410830\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"dealId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer2\",\"type\":\"address\"}],\"name\":\"DealApproved\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"dealId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer2\",\"type\":\"address\"}],\"name\":\"DealCanceled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"dealId\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer2\",\"type\":\"address\"}],\"name\":\"DealClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token1\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount1\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"proposer2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"executor2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token2\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount2\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"startDate\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"vesting\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"DealCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"_deals\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proposer1\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"proposer2\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account1\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account2\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token1\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token2\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount1\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amount2\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startDate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vesting\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"},{\"internalType\":\"enum ISwapper.Status\",\"name\":\"status\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"cancel\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"}],\"name\":\"claim\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"proposer1\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token1\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount1\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"proposer2\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account2\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token2\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount2\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"vesting\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"propose\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"approve(uint256)\":{\"details\":\"Update the Deal status to `Approved` after Transfer token of amount set in the Deal for second account. This requires the account2 to have approved Swapper contract for  the amount2 in the Deal at address token2. Returns a boolean value indicating whether the operation succeeded. Emits a {DealApproved} event.\"},\"cancel(uint256)\":{\"details\":\"Cancel the Deal proposal after the acceptance period is over.  This requires only the proposer to be the function caller and the  deal to be still pending which means not yet accepted by the other  stakeholder. Returns a boolean value indicating whether the operation succeeded. Emits a {DealCanceled} event.\"},\"claim(uint256)\":{\"details\":\"Send the amount of tokens to the Deal stakeholders.  This requires the vesting period set in the Deal to be over. Returns a boolean value indicating whether the operation succeeded. Emits a {DealClaimed} event.\"},\"propose(address,address,uint256,address,address,address,uint256,uint256,uint256)\":{\"details\":\"Creates a new Deal after Transfer at address `token1`  of `amount1` tokens from the caller's account to Swapper contract.  This requires the caller to have approved Swpper contract for `amount1`  to be transfered Returns a boolean value indicating whether the operation succeeded and the id of the Deal created. Emits a {DealCreated} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Swapper.sol\":\"Swapper\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"none\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":500},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.5.0) (token/ERC20/IERC20.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Interface of the ERC20 standard as defined in the EIP.\\n */\\ninterface IERC20 {\\n    /**\\n     * @dev Returns the amount of tokens in existence.\\n     */\\n    function totalSupply() external view returns (uint256);\\n\\n    /**\\n     * @dev Returns the amount of tokens owned by `account`.\\n     */\\n    function balanceOf(address account) external view returns (uint256);\\n\\n    /**\\n     * @dev Moves `amount` tokens from the caller's account to `to`.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transfer(address to, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Returns the remaining number of tokens that `spender` will be\\n     * allowed to spend on behalf of `owner` through {transferFrom}. This is\\n     * zero by default.\\n     *\\n     * This value changes when {approve} or {transferFrom} are called.\\n     */\\n    function allowance(address owner, address spender) external view returns (uint256);\\n\\n    /**\\n     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * IMPORTANT: Beware that changing an allowance with this method brings the risk\\n     * that someone may use both the old and the new allowance by unfortunate\\n     * transaction ordering. One possible solution to mitigate this race\\n     * condition is to first reduce the spender's allowance to 0 and set the\\n     * desired value afterwards:\\n     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\\n     *\\n     * Emits an {Approval} event.\\n     */\\n    function approve(address spender, uint256 amount) external returns (bool);\\n\\n    /**\\n     * @dev Moves `amount` tokens from `from` to `to` using the\\n     * allowance mechanism. `amount` is then deducted from the caller's\\n     * allowance.\\n     *\\n     * Returns a boolean value indicating whether the operation succeeded.\\n     *\\n     * Emits a {Transfer} event.\\n     */\\n    function transferFrom(\\n        address from,\\n        address to,\\n        uint256 amount\\n    ) external returns (bool);\\n\\n    /**\\n     * @dev Emitted when `value` tokens are moved from one account (`from`) to\\n     * another (`to`).\\n     *\\n     * Note that `value` may be zero.\\n     */\\n    event Transfer(address indexed from, address indexed to, uint256 value);\\n\\n    /**\\n     * @dev Emitted when the allowance of a `spender` for an `owner` is set by\\n     * a call to {approve}. `value` is the new allowance.\\n     */\\n    event Approval(address indexed owner, address indexed spender, uint256 value);\\n}\\n\",\"keccak256\":\"0xbbc8ac883ac3c0078ce5ad3e288fbb3ffcc8a30c3a98c0fda0114d64fc44fca2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Counters.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Counters.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @title Counters\\n * @author Matt Condon (@shrugs)\\n * @dev Provides counters that can only be incremented, decremented or reset. This can be used e.g. to track the number\\n * of elements in a mapping, issuing ERC721 ids, or counting request ids.\\n *\\n * Include with `using Counters for Counters.Counter;`\\n */\\nlibrary Counters {\\n    struct Counter {\\n        // This variable should never be directly accessed by users of the library: interactions must be restricted to\\n        // the library's function. As of Solidity v0.5.2, this cannot be enforced, though there is a proposal to add\\n        // this feature: see https://github.com/ethereum/solidity/issues/4637\\n        uint256 _value; // default: 0\\n    }\\n\\n    function current(Counter storage counter) internal view returns (uint256) {\\n        return counter._value;\\n    }\\n\\n    function increment(Counter storage counter) internal {\\n        unchecked {\\n            counter._value += 1;\\n        }\\n    }\\n\\n    function decrement(Counter storage counter) internal {\\n        uint256 value = counter._value;\\n        require(value > 0, \\\"Counter: decrement overflow\\\");\\n        unchecked {\\n            counter._value = value - 1;\\n        }\\n    }\\n\\n    function reset(Counter storage counter) internal {\\n        counter._value = 0;\\n    }\\n}\\n\",\"keccak256\":\"0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1\",\"license\":\"MIT\"},\"contracts/ISwapper.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.6;\\n\\ninterface ISwapper {\\n\\n    enum Status {\\n        Pending,\\n        Approved,\\n        Claimed,\\n        Canceled\\n    }\\n\\n    event DealCreated(\\n        address proposer1,\\n        address executor1,\\n        address token1, \\n        uint256 amount1, \\n        address proposer2,\\n        address executor2, \\n        address token2, \\n        uint256 amount2,\\n        uint256 startDate,\\n        uint256 vesting,\\n        uint256 deadline\\n    );\\n\\n    event DealApproved(uint256 dealId, address executor, address proposer1, address proposer2);\\n\\n    event DealClaimed(uint256 dealId, address executor, address proposer1, address proposer2);\\n\\n    event DealCanceled(uint256 dealId, address executor, address proposer1, address proposer2);\\n\\n    /**\\n    * @dev Creates a new Deal after Transfer at address `token1` \\n    * of `amount1` tokens from the caller's account to Swapper contract.\\n    * \\n    * This requires the caller to have approved Swpper contract for `amount1` \\n    * to be transfered\\n    *\\n    * Returns a boolean value indicating whether the operation succeeded\\n    * and the id of the Deal created.\\n    *\\n    * Emits a {DealCreated} event.\\n    */\\n    function propose(\\n        address proposer1,\\n        address token1, \\n        uint256 amount1,\\n        address proposer2, \\n        address account2, \\n        address token2, \\n        uint256 amount2, \\n        uint256 vesting,\\n        uint256 deadline\\n    ) external returns(bool, uint256);\\n\\n    /**\\n    * @dev Update the Deal status to `Approved` after Transfer token of\\n    * amount set in the Deal for second account.\\n    *\\n    * This requires the account2 to have approved Swapper contract for \\n    * the amount2 in the Deal at address token2.\\n    *\\n    * Returns a boolean value indicating whether the operation succeeded.\\n    *\\n    * Emits a {DealApproved} event.\\n    */\\n    function approve(uint256 id) external returns (bool);\\n\\n    /**\\n    * @dev Send the amount of tokens to the Deal stakeholders. \\n    * This requires the vesting period set in the Deal to be over.\\n    *\\n    * Returns a boolean value indicating whether the operation succeeded.\\n    *\\n    * Emits a {DealClaimed} event.\\n    */\\n    function claim(uint256 id) external returns (bool);\\n\\n    /**\\n    * @dev Cancel the Deal proposal after the acceptance period is over. \\n    * This requires only the proposer to be the function caller and the \\n    * deal to be still pending which means not yet accepted by the other \\n    * stakeholder.\\n    *\\n    * Returns a boolean value indicating whether the operation succeeded.\\n    *\\n    * Emits a {DealCanceled} event.\\n    */\\n    function cancel(uint256 id) external returns (bool);\\n}\",\"keccak256\":\"0xb94c7919537c041f28ca3c3c8f5e0cb08392e1c0553a140de7d23a1b6dd85cb4\",\"license\":\"MIT\"},\"contracts/Swapper.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.6;\\n\\nimport \\\"./ISwapper.sol\\\";\\nimport \\\"@openzeppelin/contracts/token/ERC20/IERC20.sol\\\";\\nimport \\\"@openzeppelin/contracts/utils/Counters.sol\\\";\\n\\ncontract Swapper is ISwapper {\\n    using Counters for Counters.Counter;\\n    Counters.Counter private _dealId;\\n\\n    // TODO: refacto this ugly struct\\n    // deal_id => pair of Offer()\\n    struct Deal {\\n        address proposer1;\\n        address proposer2;\\n        address account1;\\n        address account2;\\n        address token1;\\n        address token2;\\n        uint256 amount1;\\n        uint256 amount2;\\n        uint256 startDate;\\n        uint256 vesting;\\n        uint256 deadline;\\n        Status status;\\n    }\\n    mapping(uint256 => Deal) public _deals;\\n\\n    mapping(address => mapping(address => uint256)) private _balances;\\n\\n    function propose(\\n        address proposer1,\\n        address token1, \\n        uint256 amount1,\\n        address proposer2, \\n        address account2, \\n        address token2, \\n        uint256 amount2, \\n        uint256 vesting,\\n        uint256 deadline\\n    ) external override returns(bool, uint256) {\\n       \\n        _transfer(msg.sender, token1, amount1);\\n        \\n        uint256 id = _dealId.current();\\n        _deals[id] = Deal({\\n            proposer1: proposer1,\\n            proposer2: proposer2,\\n            account1: msg.sender, \\n            account2: account2,\\n            token1: token1,\\n            token2: token2,\\n            amount1: amount1,\\n            amount2: amount2,\\n            startDate: block.number,\\n            vesting: vesting,\\n            deadline: deadline,\\n            status: Status.Pending\\n        });\\n        _dealId.increment();\\n\\n        emit DealCreated(\\n            proposer1, \\n            msg.sender, \\n            token1, \\n            amount1, \\n            proposer2, \\n            account2, \\n            token2, \\n            amount2, \\n            block.number, \\n            vesting, \\n            deadline\\n        );\\n\\n        return (true, id);\\n    }\\n\\n    function approve(uint256 id) external override returns (bool) {\\n        Deal storage deal = _deals[id];\\n\\n        require(msg.sender == deal.account2, \\\"Swapper: caller not allowed\\\");\\n\\n        _transfer(msg.sender, deal.token2, deal.amount2);\\n        \\n        deal.status = Status.Approved;\\n\\n        emit DealApproved(id, msg.sender, deal.proposer1, deal.proposer2);\\n\\n        return true;\\n    }\\n\\n    function claim(uint256 id) external override returns (bool) {\\n        Deal storage deal = _deals[id];\\n        \\n        require(deal.startDate + deal.vesting <= block.number, \\\"Swapper: vesting period is not over\\\");\\n\\n        IERC20(deal.token1).transfer(deal.account2, deal.amount1);\\n        IERC20(deal.token2).transfer(deal.account1, deal.amount2);\\n\\n        deal.status = Status.Claimed;\\n        \\n        emit DealClaimed(id, msg.sender, deal.proposer1, deal.proposer2);\\n        \\n        return true;\\n    }\\n\\n    function cancel(uint256 id) external override returns (bool) {\\n        Deal storage deal = _deals[id];\\n        require(deal.account1 == msg.sender, \\\"Swapper: caller is not the deal proposer\\\");\\n        require(deal.status == Status.Pending, \\\"Swapper: deal is no longer pending\\\");\\n        require(deal.startDate + deal.deadline >= block.number, \\\"Swapper: acceptance period is not over\\\");\\n        IERC20(deal.token1).transfer(deal.account1, deal.amount1);\\n        deal.status = Status.Canceled;\\n        \\n        emit DealCanceled(id, msg.sender, deal.proposer1, deal.proposer2);\\n\\n        return true;\\n    }\\n\\n    function _transfer(address account, address token, uint256 amount) private {\\n        uint256 allowance = IERC20(token).allowance(account, address(this));\\n        require(allowance >= amount, \\\"Swapper: needs allowance\\\");\\n        \\n        bool success = IERC20(token).transferFrom(account, address(this), amount);\\n        require(success, \\\"Swapper: token transfer has failed\\\");\\n\\n        _balances[account][token] = amount;\\n    }\\n}\",\"keccak256\":\"0x40cdd88053f0c42bea632c709eb2b593befd2306a088764755ced62f3620d4ee\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610cbb806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806310b4caed1461005c578063379607f51461010457806340e58ee514610127578063781f9cf21461013a578063b759f95414610164575b600080fd5b6100e361006a366004610ad9565b600160208190526000918252604090912080549181015460028201546003830154600484015460058501546006860154600787015460088801546009890154600a8a0154600b909a01546001600160a01b039b8c169b998a169a988a169997881698968816979095169593949293919290919060ff168c565b6040516100fb9c9b9a99989796959493929190610b08565b60405180910390f35b610117610112366004610ad9565b610177565b60405190151581526020016100fb565b610117610135366004610ad9565b610373565b61014d610148366004610bba565b6105bc565b6040805192151583526020830191909152016100fb565b610117610172366004610ad9565b61081b565b600081815260016020526040812060098101546008820154439161019a91610c46565b11156101f95760405162461bcd60e51b815260206004820152602360248201527f537761707065723a2076657374696e6720706572696f64206973206e6f74206f6044820152623b32b960e91b60648201526084015b60405180910390fd5b6004818101546003830154600684015460405163a9059cbb60e01b81526001600160a01b03928316948101949094526024840152169063a9059cbb906044016020604051808303816000875af1158015610257573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061027b9190610c6c565b5060058101546002820154600783015460405163a9059cbb60e01b81526001600160a01b039283166004820152602481019190915291169063a9059cbb906044016020604051808303816000875af11580156102db573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102ff9190610c6c565b50600b8101805460ff1916600217905580546001820154604080518681523360208201526001600160a01b0393841691810191909152911660608201527f4b0ad059882202bf508221d6486f6f32372bd7e6cb2749615dbc07597f3398a1906080015b60405180910390a150600192915050565b600081815260016020526040812060028101546001600160a01b031633146103ee5760405162461bcd60e51b815260206004820152602860248201527f537761707065723a2063616c6c6572206973206e6f7420746865206465616c20604482015267383937b837b9b2b960c11b60648201526084016101f0565b6000600b82015460ff16600381111561040957610409610af2565b146104615760405162461bcd60e51b815260206004820152602260248201527f537761707065723a206465616c206973206e6f206c6f6e6765722070656e64696044820152616e6760f01b60648201526084016101f0565b4381600a015482600801546104769190610c46565b10156104d35760405162461bcd60e51b815260206004820152602660248201527f537761707065723a20616363657074616e636520706572696f64206973206e6f6044820152653a1037bb32b960d11b60648201526084016101f0565b6004818101546002830154600684015460405163a9059cbb60e01b81526001600160a01b03928316948101949094526024840152169063a9059cbb906044016020604051808303816000875af1158015610531573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105559190610c6c565b50600b8101805460ff1916600317905580546001820154604080518681523360208201526001600160a01b0393841691810191909152911660608201527f17bd80eba42ad072a18eb5995ff3ef08afedea4dfe22fdd186c0c7ada3a3d3a390608001610362565b6000806105ca338b8b61090e565b6000805490506040518061018001604052808d6001600160a01b031681526020018a6001600160a01b03168152602001336001600160a01b03168152602001896001600160a01b031681526020018c6001600160a01b03168152602001886001600160a01b031681526020018b81526020018781526020014381526020018681526020018581526020016000600381111561066757610667610af2565b90526000828152600160208181526040928390208451815473ffffffffffffffffffffffffffffffffffffffff199081166001600160a01b0392831617835592860151828501805485169183169190911790559385015160028201805484169186169190911790556060850151600380830180548516928716929092179091556080860151600483018054851691871691909117905560a086015160058301805490941695169490941790915560c0840151600682015560e0840151600782015561010084015160088201556101208401516009820155610140840151600a820155610160840151600b8201805492949193909260ff191691849081111561077157610771610af2565b02179055505060008054600101905550604080516001600160a01b038e811682523360208301528d811682840152606082018d90528b811660808301528a811660a0830152891660c082015260e08101889052436101008201526101208101879052610140810186905290517f1b21afb2560eccdb2c730979491bdac6d314cfc809d4bab3685b66163f374d73918190036101600190a160019c909b509950505050505050505050565b600081815260016020526040812060038101546001600160a01b031633146108855760405162461bcd60e51b815260206004820152601b60248201527f537761707065723a2063616c6c6572206e6f7420616c6c6f776564000000000060448201526064016101f0565b600581015460078201546108a69133916001600160a01b039091169061090e565b600b8101805460ff19166001908117909155815490820154604080518681523360208201526001600160a01b0393841691810191909152911660608201527f146590640df693bb509a0a01100fe0071e0b85e3ef43c1df6546bae68ec8004090608001610362565b604051636eb1769f60e11b81526001600160a01b0384811660048301523060248301526000919084169063dd62ed3e90604401602060405180830381865afa15801561095e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109829190610c95565b9050818110156109d45760405162461bcd60e51b815260206004820152601860248201527f537761707065723a206e6565647320616c6c6f77616e6365000000000000000060448201526064016101f0565b6040516323b872dd60e01b81526001600160a01b03858116600483015230602483015260448201849052600091908516906323b872dd906064016020604051808303816000875af1158015610a2d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610a519190610c6c565b905080610aab5760405162461bcd60e51b815260206004820152602260248201527f537761707065723a20746f6b656e207472616e7366657220686173206661696c604482015261195960f21b60648201526084016101f0565b50506001600160a01b0392831660009081526002602090815260408083209490951682529290925291902055565b600060208284031215610aeb57600080fd5b5035919050565b634e487b7160e01b600052602160045260246000fd5b6000610180820190506001600160a01b03808f168352808e166020840152808d166040840152808c166060840152808b166080840152808a1660a0840152508760c08301528660e083015285610100830152846101208301528361014083015260048310610b8657634e487b7160e01b600052602160045260246000fd5b826101608301529d9c50505050505050505050505050565b80356001600160a01b0381168114610bb557600080fd5b919050565b60008060008060008060008060006101208a8c031215610bd957600080fd5b610be28a610b9e565b9850610bf060208b01610b9e565b975060408a01359650610c0560608b01610b9e565b9550610c1360808b01610b9e565b9450610c2160a08b01610b9e565b935060c08a0135925060e08a013591506101008a013590509295985092959850929598565b60008219821115610c6757634e487b7160e01b600052601160045260246000fd5b500190565b600060208284031215610c7e57600080fd5b81518015158114610c8e57600080fd5b9392505050565b600060208284031215610ca757600080fd5b505191905056fea164736f6c634300080a000a",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806310b4caed1461005c578063379607f51461010457806340e58ee514610127578063781f9cf21461013a578063b759f95414610164575b600080fd5b6100e361006a366004610ad9565b600160208190526000918252604090912080549181015460028201546003830154600484015460058501546006860154600787015460088801546009890154600a8a0154600b909a01546001600160a01b039b8c169b998a169a988a169997881698968816979095169593949293919290919060ff168c565b6040516100fb9c9b9a99989796959493929190610b08565b60405180910390f35b610117610112366004610ad9565b610177565b60405190151581526020016100fb565b610117610135366004610ad9565b610373565b61014d610148366004610bba565b6105bc565b6040805192151583526020830191909152016100fb565b610117610172366004610ad9565b61081b565b600081815260016020526040812060098101546008820154439161019a91610c46565b11156101f95760405162461bcd60e51b815260206004820152602360248201527f537761707065723a2076657374696e6720706572696f64206973206e6f74206f6044820152623b32b960e91b60648201526084015b60405180910390fd5b6004818101546003830154600684015460405163a9059cbb60e01b81526001600160a01b03928316948101949094526024840152169063a9059cbb906044016020604051808303816000875af1158015610257573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061027b9190610c6c565b5060058101546002820154600783015460405163a9059cbb60e01b81526001600160a01b039283166004820152602481019190915291169063a9059cbb906044016020604051808303816000875af11580156102db573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102ff9190610c6c565b50600b8101805460ff1916600217905580546001820154604080518681523360208201526001600160a01b0393841691810191909152911660608201527f4b0ad059882202bf508221d6486f6f32372bd7e6cb2749615dbc07597f3398a1906080015b60405180910390a150600192915050565b600081815260016020526040812060028101546001600160a01b031633146103ee5760405162461bcd60e51b815260206004820152602860248201527f537761707065723a2063616c6c6572206973206e6f7420746865206465616c20604482015267383937b837b9b2b960c11b60648201526084016101f0565b6000600b82015460ff16600381111561040957610409610af2565b146104615760405162461bcd60e51b815260206004820152602260248201527f537761707065723a206465616c206973206e6f206c6f6e6765722070656e64696044820152616e6760f01b60648201526084016101f0565b4381600a015482600801546104769190610c46565b10156104d35760405162461bcd60e51b815260206004820152602660248201527f537761707065723a20616363657074616e636520706572696f64206973206e6f6044820152653a1037bb32b960d11b60648201526084016101f0565b6004818101546002830154600684015460405163a9059cbb60e01b81526001600160a01b03928316948101949094526024840152169063a9059cbb906044016020604051808303816000875af1158015610531573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906105559190610c6c565b50600b8101805460ff1916600317905580546001820154604080518681523360208201526001600160a01b0393841691810191909152911660608201527f17bd80eba42ad072a18eb5995ff3ef08afedea4dfe22fdd186c0c7ada3a3d3a390608001610362565b6000806105ca338b8b61090e565b6000805490506040518061018001604052808d6001600160a01b031681526020018a6001600160a01b03168152602001336001600160a01b03168152602001896001600160a01b031681526020018c6001600160a01b03168152602001886001600160a01b031681526020018b81526020018781526020014381526020018681526020018581526020016000600381111561066757610667610af2565b90526000828152600160208181526040928390208451815473ffffffffffffffffffffffffffffffffffffffff199081166001600160a01b0392831617835592860151828501805485169183169190911790559385015160028201805484169186169190911790556060850151600380830180548516928716929092179091556080860151600483018054851691871691909117905560a086015160058301805490941695169490941790915560c0840151600682015560e0840151600782015561010084015160088201556101208401516009820155610140840151600a820155610160840151600b8201805492949193909260ff191691849081111561077157610771610af2565b02179055505060008054600101905550604080516001600160a01b038e811682523360208301528d811682840152606082018d90528b811660808301528a811660a0830152891660c082015260e08101889052436101008201526101208101879052610140810186905290517f1b21afb2560eccdb2c730979491bdac6d314cfc809d4bab3685b66163f374d73918190036101600190a160019c909b509950505050505050505050565b600081815260016020526040812060038101546001600160a01b031633146108855760405162461bcd60e51b815260206004820152601b60248201527f537761707065723a2063616c6c6572206e6f7420616c6c6f776564000000000060448201526064016101f0565b600581015460078201546108a69133916001600160a01b039091169061090e565b600b8101805460ff19166001908117909155815490820154604080518681523360208201526001600160a01b0393841691810191909152911660608201527f146590640df693bb509a0a01100fe0071e0b85e3ef43c1df6546bae68ec8004090608001610362565b604051636eb1769f60e11b81526001600160a01b0384811660048301523060248301526000919084169063dd62ed3e90604401602060405180830381865afa15801561095e573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906109829190610c95565b9050818110156109d45760405162461bcd60e51b815260206004820152601860248201527f537761707065723a206e6565647320616c6c6f77616e6365000000000000000060448201526064016101f0565b6040516323b872dd60e01b81526001600160a01b03858116600483015230602483015260448201849052600091908516906323b872dd906064016020604051808303816000875af1158015610a2d573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610a519190610c6c565b905080610aab5760405162461bcd60e51b815260206004820152602260248201527f537761707065723a20746f6b656e207472616e7366657220686173206661696c604482015261195960f21b60648201526084016101f0565b50506001600160a01b0392831660009081526002602090815260408083209490951682529290925291902055565b600060208284031215610aeb57600080fd5b5035919050565b634e487b7160e01b600052602160045260246000fd5b6000610180820190506001600160a01b03808f168352808e166020840152808d166040840152808c166060840152808b166080840152808a1660a0840152508760c08301528660e083015285610100830152846101208301528361014083015260048310610b8657634e487b7160e01b600052602160045260246000fd5b826101608301529d9c50505050505050505050505050565b80356001600160a01b0381168114610bb557600080fd5b919050565b60008060008060008060008060006101208a8c031215610bd957600080fd5b610be28a610b9e565b9850610bf060208b01610b9e565b975060408a01359650610c0560608b01610b9e565b9550610c1360808b01610b9e565b9450610c2160a08b01610b9e565b935060c08a0135925060e08a013591506101008a013590509295985092959850929598565b60008219821115610c6757634e487b7160e01b600052601160045260246000fd5b500190565b600060208284031215610c7e57600080fd5b81518015158114610c8e57600080fd5b9392505050565b600060208284031215610ca757600080fd5b505191905056fea164736f6c634300080a000a",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "approve(uint256)": {
+        "details": "Update the Deal status to `Approved` after Transfer token of amount set in the Deal for second account. This requires the account2 to have approved Swapper contract for  the amount2 in the Deal at address token2. Returns a boolean value indicating whether the operation succeeded. Emits a {DealApproved} event."
+      },
+      "cancel(uint256)": {
+        "details": "Cancel the Deal proposal after the acceptance period is over.  This requires only the proposer to be the function caller and the  deal to be still pending which means not yet accepted by the other  stakeholder. Returns a boolean value indicating whether the operation succeeded. Emits a {DealCanceled} event."
+      },
+      "claim(uint256)": {
+        "details": "Send the amount of tokens to the Deal stakeholders.  This requires the vesting period set in the Deal to be over. Returns a boolean value indicating whether the operation succeeded. Emits a {DealClaimed} event."
+      },
+      "propose(address,address,uint256,address,address,address,uint256,uint256,uint256)": {
+        "details": "Creates a new Deal after Transfer at address `token1`  of `amount1` tokens from the caller's account to Swapper contract.  This requires the caller to have approved Swpper contract for `amount1`  to be transfered Returns a boolean value indicating whether the operation succeeded and the id of the Deal created. Emits a {DealCreated} event."
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 277,
+        "contract": "contracts/Swapper.sol:Swapper",
+        "label": "_dealId",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_struct(Counter)83_storage"
+      },
+      {
+        "astId": 308,
+        "contract": "contracts/Swapper.sol:Swapper",
+        "label": "_deals",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_struct(Deal)303_storage)"
+      },
+      {
+        "astId": 314,
+        "contract": "contracts/Swapper.sol:Swapper",
+        "label": "_balances",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_uint256))"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_enum(Status)158": {
+        "encoding": "inplace",
+        "label": "enum ISwapper.Status",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => uint256))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_uint256)"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_struct(Deal)303_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct Swapper.Deal)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Deal)303_storage"
+      },
+      "t_struct(Counter)83_storage": {
+        "encoding": "inplace",
+        "label": "struct Counters.Counter",
+        "members": [
+          {
+            "astId": 82,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "_value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "32"
+      },
+      "t_struct(Deal)303_storage": {
+        "encoding": "inplace",
+        "label": "struct Swapper.Deal",
+        "members": [
+          {
+            "astId": 279,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "proposer1",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 281,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "proposer2",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address"
+          },
+          {
+            "astId": 283,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "account1",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_address"
+          },
+          {
+            "astId": 285,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "account2",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_address"
+          },
+          {
+            "astId": 287,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "token1",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_address"
+          },
+          {
+            "astId": 289,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "token2",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_address"
+          },
+          {
+            "astId": 291,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "amount1",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 293,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "amount2",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 295,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "startDate",
+            "offset": 0,
+            "slot": "8",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 297,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "vesting",
+            "offset": 0,
+            "slot": "9",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 299,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "deadline",
+            "offset": 0,
+            "slot": "10",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 302,
+            "contract": "contracts/Swapper.sol:Swapper",
+            "label": "status",
+            "offset": 0,
+            "slot": "11",
+            "type": "t_enum(Status)158"
+          }
+        ],
+        "numberOfBytes": "384"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
