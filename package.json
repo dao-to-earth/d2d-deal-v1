@@ -64,7 +64,7 @@
     "typechain": "^4.0.3",
     "vue": "^3.2.25",
     "vue-i18n": "^9.1.9",
-    "vue-router": "^4.0.13",
+    "vue-router": "^4.0.15",
     "vue-tippy": "^6.0.0-alpha.58",
     "vuedraggable": "^4.0.2",
     "web3modal": "^1.9.5",
