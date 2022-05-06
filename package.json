@@ -21,7 +21,7 @@
     "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,sol,ts}\""
   },
   "dependencies": {
-    "@apollo/client": "^3.6.1",
+    "@apollo/client": "^3.6.2",
     "@braintree/sanitize-url": "^6.0.0",
     "@chainlink/contracts": "^0.4.0",
     "@dao-to-earth/lock": "github:dao-to-earth/lock",
