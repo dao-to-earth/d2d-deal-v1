@@ -99,6 +99,7 @@ contract Swapper is ISwapper {
 
     function cancel(uint256 id) external override returns (bool) {
         Deal storage deal = _deals[id];
+        // anyone should be able to cancel
         require(deal.account1 == msg.sender, "Swapper: caller is not the deal proposer");
         require(deal.status == Status.Pending, "Swapper: deal is no longer pending");
         require(deal.startDate + deal.deadline >= block.number, "Swapper: acceptance period is not over");

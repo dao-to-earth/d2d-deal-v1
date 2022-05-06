@@ -53,14 +53,14 @@ export default {
     hardhat: {
       allowUnlimitedContractSize: false,
     },
-    rinkeby: {
-      url: process.env.ALCHEMY_RINKEBY_KEY,
-      accounts: [process.env.PRIVATE_KEY],
-    },
-    mumbai: {
-      url: process.env.ALCHEMY_MUMBAI_KEY,
-      accounts: [process.env.PRIVATE_KEY],
-    },
+    // rinkeby: {
+    //   url: process.env.ALCHEMY_RINKEBY_KEY,
+    //   accounts: [process.env.PRIVATE_KEY],
+    // },
+    // mumbai: {
+    //   url: process.env.ALCHEMY_MUMBAI_KEY,
+    //   accounts: [process.env.PRIVATE_KEY],
+    // },
     // fantom: {
     //   url: 'https://rpc.ftm.tools/',
     //   accounts,
@@ -140,17 +140,17 @@ export default {
     //   gasMultipliyer: 2,
     // },
   },
-  etherscan: {
-    apiKey: {
-      rinkeby: process.env.ETHERSCAN_API_KEY,
-      bscTestnet: process.env.BSCSCAN_API_KEY,
-      bsc: process.env.BSCSCAN_API_KEY,
-      polygonMumbai: process.env.POLYGONSCAN_API_KEY,
-      polygon: process.env.POLYGONSCAN_API_KEY,
-      avalancheFujiTestnet: process.env.SNOWTRACE_API_KEY,
-      avalanche: process.env.SNOWTRACE_API_KEY,
-    },
-  },
+  // etherscan: {
+  //   apiKey: {
+  //     rinkeby: process.env.ETHERSCAN_API_KEY,
+  //     bscTestnet: process.env.BSCSCAN_API_KEY,
+  //     bsc: process.env.BSCSCAN_API_KEY,
+  //     polygonMumbai: process.env.POLYGONSCAN_API_KEY,
+  //     polygon: process.env.POLYGONSCAN_API_KEY,
+  //     avalancheFujiTestnet: process.env.SNOWTRACE_API_KEY,
+  //     avalanche: process.env.SNOWTRACE_API_KEY,
+  //   },
+  // },
   solidity: {
     version: '0.8.10',
     settings: {
