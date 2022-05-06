@@ -9,23 +9,16 @@ D2D deal client and contracts.
 * Git CLI
 
 ### Setup and Run
-* Clone or fork
 ```bash
 # clone (or fork and clone)
 git clone https://github.com/dao-to-earth/d2d-deal-v1.git
 cd d2d-deal-v1
-```
 
-```bash
 # install node packages
 yarn
 
-```
-
-```bash
 # run client locally
 yarn dev
-
 ```
 
 You can check more commands in the scripts in package.json.<br />
