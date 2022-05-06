@@ -35,7 +35,7 @@
     "@typechain/web3-v1": "^5.0.0",
     "@types/chai": "^4.2.21",
     "@types/mocha": "^9.1.0",
-    "@vue/apollo-composable": "^4.0.0-alpha.16",
+    "@vue/apollo-composable": "^4.0.0-alpha.17",
     "@vueuse/core": "^8.2.3",
     "@walletconnect/web3-provider": "^1.7.8",
     "authereum": "^0.1.14",
