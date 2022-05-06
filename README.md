@@ -51,9 +51,7 @@ The contracts directory contains the deal deal protocol smart contract.
 
 ### `deploy`
 
-The deploy directory contains contract deployment scripts.
-
-More information about this the usage of this in [Hardhat-deploy documentation](https://github.com/wighawag/hardhat-deploy).
+The deploy directory contains contract deployment scripts.<br />More information about this the usage of this in [Hardhat-deploy documentation](https://github.com/wighawag/hardhat-deploy).
 
 ### `public`
 
@@ -69,7 +67,7 @@ The src/assets directory contains compiled static assets, such as images and Sas
 
 #### `src/components`
 
-The src/components directory contains Vue.js components. Components make up the different parts of your page and can be reused and imported into views directory.
+The src/components directory contains Vue.js components.<br /> Components make up the different parts of your page and can be reused and imported into views directory.
 
 #### `src/composables`
 
@@ -81,6 +79,5 @@ The src/helpers contains organized logic so that complex codes and library speci
 
 #### `src/views`
 
-The src/views files are exactly the same usage with pages in Nuxt.js/Next.js.
-
+The src/views files are exactly the same usage with pages in Nuxt.js/Next.js, which means src/views files are responsible for rendering pages.<br />
 Routing is written in src/router.ts
