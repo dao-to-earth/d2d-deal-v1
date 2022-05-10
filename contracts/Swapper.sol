@@ -109,7 +109,7 @@ contract Swapper is ISwapper {
         Deal storage deal = _deals[id];
         
         require(deal.status == Status.Approved, "Swapper: the deal has not been approved by both parties");
-        require(deal.startDate + deal.vesting <= block.number, "Swapper: vesting period is not over");
+        require(block.number >= deal.startDate + deal.vesting, "Swapper: vesting period is not over");
 
         IERC20(deal.token1).transfer(deal.account2, deal.amount1);
         IERC20(deal.token2).transfer(deal.account1, deal.amount2);
