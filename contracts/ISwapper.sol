@@ -41,6 +41,7 @@ interface ISwapper {
     * Emits a {DealCreated} event.
     */
     function propose(
+        address account1,
         address token1, 
         uint256 amount1, 
         address account2, 
