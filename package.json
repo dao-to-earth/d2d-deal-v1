@@ -47,7 +47,7 @@
     "eth-provider": "^0.11.0",
     "ethers": "^5.6.2",
     "fortmatic": "^2.2.1",
-    "graphql": "^16.4.0",
+    "graphql": "^16.5.0",
     "graphql-tag": "^2.12.6",
     "hardhat-deploy": "^0.11.4",
     "hardhat-typechain": "^0.3.5",
