@@ -23,7 +23,7 @@
   "dependencies": {
     "@apollo/client": "^3.6.1",
     "@braintree/sanitize-url": "^6.0.0",
-    "@chainlink/contracts": "^0.4.0",
+    "@chainlink/contracts": "^0.4.1",
     "@dao-to-earth/lock": "github:dao-to-earth/lock",
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
     "@esbuild-plugins/node-modules-polyfill": "^0.1.4",
