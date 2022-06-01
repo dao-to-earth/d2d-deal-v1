@@ -83,7 +83,7 @@
     "@openzeppelin/contracts": "^4.6.0",
     "@openzeppelin/contracts-upgradeable": "^4.5.1",
     "@openzeppelin/hardhat-upgrades": "1.17.0",
-    "@quasar/vite-plugin": "^1.0.7",
+    "@quasar/vite-plugin": "^1.0.10",
     "@tailwindcss/line-clamp": "^0.4.0",
     "@typechain/hardhat": "^4.0.0",
     "@types/node": "^16.11.7",
