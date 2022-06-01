@@ -30,7 +30,7 @@
     "@portis/web3": "^4.0.7",
     "@pusher/push-notifications-web": "^1.1.0",
     "@quasar/extras": "^1.13.6",
-    "@snapshot-labs/snapshot.js": "^0.3.77",
+    "@snapshot-labs/snapshot.js": "^0.3.88",
     "@typechain/truffle-v5": "^7.0.0",
     "@typechain/web3-v1": "^5.0.0",
     "@types/chai": "^4.2.21",
